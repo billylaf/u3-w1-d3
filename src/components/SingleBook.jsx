@@ -42,6 +42,9 @@ class SingleBook extends Component {
         <Card.Img variant="top" src={book.img} />
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
+          <Card.Title>
+            <p>price: ${book.price}</p>
+          </Card.Title>
         </Card.Body>
       </Card>
     )
