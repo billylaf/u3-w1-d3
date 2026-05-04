@@ -1,4 +1,5 @@
-import { Component } from "react"
+{
+  /* import { Component } from "react"
 
 class CommentsList extends Component {
   render() {
@@ -13,6 +14,26 @@ class CommentsList extends Component {
           >
             <p>{e.comment}</p>
             <p>Voto: {e.rate}</p>
+          </div>
+        ))}
+      </div>
+    )
+  }
+}
+
+export default CommentsList */
+}
+import { Component } from "react"
+
+class CommentsList extends Component {
+  render() {
+    return (
+      <div>
+        {this.props.comments.map((c) => (
+          <div key={c._id}>
+            <p>{c.comment}</p>
+            <p>⭐ {c.rate}</p>
+            <hr />
           </div>
         ))}
       </div>

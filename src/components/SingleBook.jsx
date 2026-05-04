@@ -14,7 +14,8 @@ const SingleBook = ({ book }) => {
 
 export default SingleBook*/
 }
-import { Component } from "react"
+{
+  /* import { Component } from "react"
 import { Card } from "react-bootstrap"
 import CommentArea from "./CommentArea"
 
@@ -54,6 +55,48 @@ class SingleBook extends Component {
           {this.state.selected && <CommentArea bookId={book.asin} />}
         </Card>
       </>
+    )
+  }
+}
+
+export default SingleBook */
+}
+import { Component } from "react"
+import { Card } from "react-bootstrap"
+
+class SingleBook extends Component {
+  state = {
+    selected: false,
+  }
+
+  toggleSelected = () => {
+    this.setState({ selected: !this.state.selected })
+  }
+
+  handleSelect = () => {
+    this.props.onSelect(this.props.book.asin)
+  }
+
+  render() {
+    const { book } = this.props
+
+    return (
+      <Card
+        style={{
+          width: "18rem",
+          border: this.state.selected ? "3px solid red" : "none",
+        }}
+        onClick={() => {
+          this.toggleSelected()
+          this.handleSelect()
+        }}
+      >
+        <Card.Img src={book.img} />
+        <Card.Body>
+          <Card.Title>{book.title}</Card.Title>
+          <p>{book.price}€</p>
+        </Card.Body>
+      </Card>
     )
   }
 }
